@@ -1,0 +1,25 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Capnp lib
+lib
+
+# Playground
+playground
+
+# Artifacts
+tr-lambdas*
+build/
+
+# OS files
+.DS_Store
+
+# Test coverae
+coverage/
+
+# Test Artifacts
+jest_0
