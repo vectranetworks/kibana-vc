@@ -1,0 +1,15 @@
+{
+  "name": "kibana-dashboard",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@sourcecode.vectra.io:7999/tr/kibana-dashboard.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
