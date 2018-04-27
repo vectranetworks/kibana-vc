@@ -15,9 +15,9 @@ This is a CLI tool that:
 ## Project structure
 
 ```
-/app
-/app/index.js - main CLI script
-/app/state.json - state of the kibana. Array of items
+/src
+/src/index.js - main CLI script
+/src/state.json - state of the kibana. Array of items
 /package.json
 ```
 
@@ -26,4 +26,3 @@ This is a CLI tool that:
 TODO:
 * Fetch state from your Kibana (ES)
 * Deploy state to remote Kibana (ES)
-

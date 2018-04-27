@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "node app/index.js deploy --dry-run",
+    "deploy": "ELASTIC_URL=\"http://localhost:9200\" node src/index.js deploy --dry-run",
     "test": "test"
   },
   "repository": {
