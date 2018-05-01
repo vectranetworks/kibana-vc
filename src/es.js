@@ -33,7 +33,7 @@ async function updateItem(item, esClient) {
     body: {doc: item._source}
   }
   try {
-    await esClient.update(params)
+    await esClient.index(params)
   } catch(e) {
     console.log('UPDATE FAILED', e)
     throw e;
@@ -41,6 +41,7 @@ async function updateItem(item, esClient) {
 }
 
 async function getEsState(esClient) {
+  // by default we'll only get 10 results back, thus adding the 1000 limit
   return await esClient.search({
     index: '.kibana',
     type: 'doc',

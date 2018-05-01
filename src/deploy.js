@@ -1,5 +1,6 @@
 const elasticsearch = require('elasticsearch')
-const { addItem, getEsState, removeItem, updateItem } = require('./es-interactions')
+const { addItem, getEsState, removeItem, updateItem } = require('./es')
+const { getState } = require('./get-state')
 const CHECKSUM_KEY = 'tr-checksum'
 
 const isVersioned = (item) => item._source && item._source.config && item._source.config[CHECKSUM_KEY]
@@ -16,31 +17,31 @@ async function doUpdates(esClient, newState, currentState, dryRun) {
       if(newChecksum !== existingChecksum){
         updated++
         if(!dryRun) {
-          updateItem(newItem, esClient)
+          await updateItem(newItem, esClient)
         }
       }
     } else {
       created++
       if(!dryRun) {
-        addItem(newItem, esClient)
+        await addItem(newItem, esClient)
       }
     }
   })
-  currentState.forEach(item => {
+  currentState.forEach(async item => {
     const itemRemoved = newState.find(newItem => newItem._id === item._id)
     if(!itemRemoved) {
       removed++
       if(!dryRun) {
-        removeItem(item, esClient)
+        await removeItem(item, esClient)
       }
     }
   })
   return { created, removed, updated }
 }
 
-async function deploy(elasticUrl = process.env.ELASTIC_URL, dryRun) {
-  const newState = require('./state.json')
-    .filter(isConfig);
+async function deploy(filePath = './__tests__/fixtures/state.json', elasticUrl = process.env.ELASTIC_URL, dryRun) {
+  const stateFile = await getState(path)
+  const newState = stateFile.filter(isConfig)
 
   const esClient = await new elasticsearch.Client({
     host: elasticUrl,

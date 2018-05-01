@@ -4,8 +4,8 @@ class Client {
   constructor() {
     this.create = jest.fn(),
     this.delete = jest.fn(),
-    this.search = jest.fn().mockReturnValue({hits: {hits: INITIAL_STATE}}),
-    this.update = jest.fn()
+    this.index = jest.fn(),
+    this.search = jest.fn().mockReturnValue({hits: {hits: INITIAL_STATE}})
   }
 }
 

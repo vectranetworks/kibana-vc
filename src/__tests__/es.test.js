@@ -1,6 +1,6 @@
 const elasticsearch = require('elasticsearch')
 const { MOCK_DASHBOARD } = require('../__mocks__/es-mock-state')
-const { addItem, getEsState, removeItem, updateItem } = require('../es-interactions')
+const { addItem, getEsState, removeItem, updateItem } = require('../es')
 
 const mockClient = new elasticsearch.Client()
 
@@ -24,8 +24,8 @@ test('removeItem calls esClient with correct params', async () => {
 })
 
 test('updateItem calls esClient with correct params', async () => {
-  const updateSpy = jest.spyOn(mockClient, 'update')
+  const updateSpy = jest.spyOn(mockClient, 'index')
   await updateItem(MOCK_DASHBOARD, mockClient)
   expect(updateSpy).toHaveBeenCalled()
-  expect(mockClient.update.mock.calls[0][0]).toMatchSnapshot()
+  expect(mockClient.index.mock.calls[0][0]).toMatchSnapshot()
 })
