@@ -20,62 +20,81 @@ Object {
 }
 `;
 
-exports[`getEsState filters search results 1`] = `
-Array [
-  Object {
-    "_id": "dashboard:host_dashboard",
-    "_index": ".kibana",
-    "_score": 1,
-    "_source": Object {
-      "config": Object {
-        "tr-checksum": "00d8211f109fd19f9d84a39523b9bdd716b8c3b5",
-      },
-      "dashboard": Object {
-        "description": "",
-        "hits": 0,
-        "kibanaSavedObjectMeta": Object {
-          "searchSourceJSON": "{\\"query\\":{\\"language\\":\\"lucene\\",\\"query\\":\\"\\"},\\"filter\\":[],\\"highlightAll\\":true,\\"version\\":true}",
+exports[`getEsState filters search results and excludes config type hits 1`] = `
+Object {
+  "hits": Object {
+    "hits": Array [
+      Object {
+        "_id": "config:6.2.2",
+        "_index": ".kibana",
+        "_score": 1,
+        "_source": Object {
+          "config": Object {
+            "buildNum": 16588,
+            "defaultIndex": "a7480050-3118-11e8-b629-33a5d6f661b4",
+            "tr-version": "1.0.1",
+          },
+          "type": "config",
+          "updated_at": "2018-04-25T08:56:45.446Z",
         },
-        "optionsJSON": "{\\"darkTheme\\":false,\\"hidePanelTitles\\":false,\\"useMargins\\":true}",
-        "panelsJSON": "[{\\"panelIndex\\":\\"4\\",\\"gridData\\":{\\"x\\":0,\\"y\\":0,\\"w\\":6,\\"h\\":3,\\"i\\":\\"4\\"},\\"id\\":\\"fca79400-44cf-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"5\\",\\"gridData\\":{\\"x\\":6,\\"y\\":0,\\"w\\":6,\\"h\\":3,\\"i\\":\\"5\\"},\\"id\\":\\"178f61d0-47dc-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"6\\",\\"gridData\\":{\\"x\\":0,\\"y\\":3,\\"w\\":6,\\"h\\":3,\\"i\\":\\"6\\"},\\"id\\":\\"61b18a10-44d8-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"7\\",\\"gridData\\":{\\"x\\":6,\\"y\\":3,\\"w\\":6,\\"h\\":3,\\"i\\":\\"7\\"},\\"id\\":\\"6e3552d0-47f8-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"8\\",\\"gridData\\":{\\"x\\":0,\\"y\\":6,\\"w\\":6,\\"h\\":3,\\"i\\":\\"8\\"},\\"version\\":\\"6.2.2\\",\\"type\\":\\"visualization\\",\\"id\\":\\"04535f20-4801-11e8-8d68-419cfa041388\\"}]",
-        "timeRestore": false,
-        "title": "Host Dashboard",
-        "version": 1,
+        "_type": "doc",
       },
-      "type": "dashboard",
-      "updated_at": "2018-04-24T22:21:35.904Z",
-    },
-    "_type": "doc",
-  },
-  Object {
-    "_id": "dashboard:3999b800-44cd-11e8-8d68-419cfa041388",
-    "_index": ".kibana",
-    "_score": 1,
-    "_source": Object {
-      "config": Object {
-        "tr-checksum": "499dbfd06272af8f92a0ae164c92c8da4c2efaaf",
-      },
-      "dashboard": Object {
-        "description": "",
-        "hits": 0,
-        "kibanaSavedObjectMeta": Object {
-          "searchSourceJSON": "{\\"query\\":{\\"language\\":\\"lucene\\",\\"query\\":\\"\\"},\\"filter\\":[],\\"highlightAll\\":true,\\"version\\":true}",
+      Object {
+        "_id": "dashboard:host_dashboard",
+        "_index": ".kibana",
+        "_score": 1,
+        "_source": Object {
+          "config": Object {
+            "tr-checksum": "00d8211f109fd19f9d84a39523b9bdd716b8c3b5",
+          },
+          "dashboard": Object {
+            "description": "",
+            "hits": 0,
+            "kibanaSavedObjectMeta": Object {
+              "searchSourceJSON": "{\\"query\\":{\\"language\\":\\"lucene\\",\\"query\\":\\"\\"},\\"filter\\":[],\\"highlightAll\\":true,\\"version\\":true}",
+            },
+            "optionsJSON": "{\\"darkTheme\\":false,\\"hidePanelTitles\\":false,\\"useMargins\\":true}",
+            "panelsJSON": "[{\\"panelIndex\\":\\"4\\",\\"gridData\\":{\\"x\\":0,\\"y\\":0,\\"w\\":6,\\"h\\":3,\\"i\\":\\"4\\"},\\"id\\":\\"fca79400-44cf-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"5\\",\\"gridData\\":{\\"x\\":6,\\"y\\":0,\\"w\\":6,\\"h\\":3,\\"i\\":\\"5\\"},\\"id\\":\\"178f61d0-47dc-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"6\\",\\"gridData\\":{\\"x\\":0,\\"y\\":3,\\"w\\":6,\\"h\\":3,\\"i\\":\\"6\\"},\\"id\\":\\"61b18a10-44d8-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"7\\",\\"gridData\\":{\\"x\\":6,\\"y\\":3,\\"w\\":6,\\"h\\":3,\\"i\\":\\"7\\"},\\"id\\":\\"6e3552d0-47f8-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"8\\",\\"gridData\\":{\\"x\\":0,\\"y\\":6,\\"w\\":6,\\"h\\":3,\\"i\\":\\"8\\"},\\"version\\":\\"6.2.2\\",\\"type\\":\\"visualization\\",\\"id\\":\\"04535f20-4801-11e8-8d68-419cfa041388\\"}]",
+            "timeRestore": false,
+            "title": "Host Dashboard",
+            "version": 1,
+          },
+          "type": "dashboard",
+          "updated_at": "2018-04-24T22:21:35.904Z",
         },
-        "optionsJSON": "{\\"darkTheme\\":true,\\"hidePanelTitles\\":false,\\"useMargins\\":true}",
-        "panelsJSON": "[{\\"panelIndex\\":\\"1\\",\\"gridData\\":{\\"x\\":6,\\"y\\":6,\\"w\\":6,\\"h\\":3,\\"i\\":\\"1\\"},\\"id\\":\\"61b18a10-44d8-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"2\\",\\"gridData\\":{\\"x\\":6,\\"y\\":9,\\"w\\":6,\\"h\\":3,\\"i\\":\\"2\\"},\\"id\\":\\"fca79400-44cf-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"3\\",\\"gridData\\":{\\"x\\":0,\\"y\\":12,\\"w\\":6,\\"h\\":3,\\"i\\":\\"3\\"},\\"id\\":\\"6e3552d0-47f8-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"4\\",\\"gridData\\":{\\"x\\":6,\\"y\\":12,\\"w\\":6,\\"h\\":3,\\"i\\":\\"4\\"},\\"id\\":\\"178f61d0-47dc-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"5\\",\\"gridData\\":{\\"x\\":0,\\"y\\":15,\\"w\\":6,\\"h\\":3,\\"i\\":\\"5\\"},\\"id\\":\\"04535f20-4801-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"6\\",\\"gridData\\":{\\"x\\":0,\\"y\\":0,\\"w\\":6,\\"h\\":3,\\"i\\":\\"6\\"},\\"id\\":\\"00ea4aa0-489d-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"7\\",\\"gridData\\":{\\"x\\":0,\\"y\\":3,\\"w\\":6,\\"h\\":3,\\"i\\":\\"7\\"},\\"id\\":\\"d9ac58a0-48a3-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"8\\",\\"gridData\\":{\\"x\\":6,\\"y\\":0,\\"w\\":6,\\"h\\":3,\\"i\\":\\"8\\"},\\"id\\":\\"59da5c10-48a0-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"9\\",\\"gridData\\":{\\"x\\":6,\\"y\\":3,\\"w\\":6,\\"h\\":3,\\"i\\":\\"9\\"},\\"id\\":\\"1a792fb0-48aa-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"10\\",\\"gridData\\":{\\"x\\":0,\\"y\\":6,\\"w\\":6,\\"h\\":3,\\"i\\":\\"10\\"},\\"id\\":\\"5740c040-48b2-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"11\\",\\"gridData\\":{\\"x\\":0,\\"y\\":9,\\"w\\":6,\\"h\\":3,\\"i\\":\\"11\\"},\\"version\\":\\"6.2.2\\",\\"type\\":\\"visualization\\",\\"id\\":\\"311d6b30-48a7-11e8-8d68-419cfa041388\\"}]",
-        "timeRestore": false,
-        "title": "Robin's Dashboard",
-        "version": 1,
+        "_type": "doc",
       },
-      "type": "dashboard",
-      "updated_at": "2018-04-25T21:56:18.359Z",
-    },
-    "_type": "doc",
+      Object {
+        "_id": "dashboard:3999b800-44cd-11e8-8d68-419cfa041388",
+        "_index": ".kibana",
+        "_score": 1,
+        "_source": Object {
+          "config": Object {
+            "tr-checksum": "499dbfd06272af8f92a0ae164c92c8da4c2efaaf",
+          },
+          "dashboard": Object {
+            "description": "",
+            "hits": 0,
+            "kibanaSavedObjectMeta": Object {
+              "searchSourceJSON": "{\\"query\\":{\\"language\\":\\"lucene\\",\\"query\\":\\"\\"},\\"filter\\":[],\\"highlightAll\\":true,\\"version\\":true}",
+            },
+            "optionsJSON": "{\\"darkTheme\\":true,\\"hidePanelTitles\\":false,\\"useMargins\\":true}",
+            "panelsJSON": "[{\\"panelIndex\\":\\"1\\",\\"gridData\\":{\\"x\\":6,\\"y\\":6,\\"w\\":6,\\"h\\":3,\\"i\\":\\"1\\"},\\"id\\":\\"61b18a10-44d8-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"2\\",\\"gridData\\":{\\"x\\":6,\\"y\\":9,\\"w\\":6,\\"h\\":3,\\"i\\":\\"2\\"},\\"id\\":\\"fca79400-44cf-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"3\\",\\"gridData\\":{\\"x\\":0,\\"y\\":12,\\"w\\":6,\\"h\\":3,\\"i\\":\\"3\\"},\\"id\\":\\"6e3552d0-47f8-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"4\\",\\"gridData\\":{\\"x\\":6,\\"y\\":12,\\"w\\":6,\\"h\\":3,\\"i\\":\\"4\\"},\\"id\\":\\"178f61d0-47dc-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"5\\",\\"gridData\\":{\\"x\\":0,\\"y\\":15,\\"w\\":6,\\"h\\":3,\\"i\\":\\"5\\"},\\"id\\":\\"04535f20-4801-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"6\\",\\"gridData\\":{\\"x\\":0,\\"y\\":0,\\"w\\":6,\\"h\\":3,\\"i\\":\\"6\\"},\\"id\\":\\"00ea4aa0-489d-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"7\\",\\"gridData\\":{\\"x\\":0,\\"y\\":3,\\"w\\":6,\\"h\\":3,\\"i\\":\\"7\\"},\\"id\\":\\"d9ac58a0-48a3-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"8\\",\\"gridData\\":{\\"x\\":6,\\"y\\":0,\\"w\\":6,\\"h\\":3,\\"i\\":\\"8\\"},\\"id\\":\\"59da5c10-48a0-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"9\\",\\"gridData\\":{\\"x\\":6,\\"y\\":3,\\"w\\":6,\\"h\\":3,\\"i\\":\\"9\\"},\\"id\\":\\"1a792fb0-48aa-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"10\\",\\"gridData\\":{\\"x\\":0,\\"y\\":6,\\"w\\":6,\\"h\\":3,\\"i\\":\\"10\\"},\\"id\\":\\"5740c040-48b2-11e8-8d68-419cfa041388\\",\\"type\\":\\"visualization\\",\\"version\\":\\"6.2.2\\"},{\\"panelIndex\\":\\"11\\",\\"gridData\\":{\\"x\\":0,\\"y\\":9,\\"w\\":6,\\"h\\":3,\\"i\\":\\"11\\"},\\"version\\":\\"6.2.2\\",\\"type\\":\\"visualization\\",\\"id\\":\\"311d6b30-48a7-11e8-8d68-419cfa041388\\"}]",
+            "timeRestore": false,
+            "title": "Robin's Dashboard",
+            "version": 1,
+          },
+          "type": "dashboard",
+          "updated_at": "2018-04-25T21:56:18.359Z",
+        },
+        "_type": "doc",
+      },
+    ],
   },
-]
+}
 `;
 
-exports[`getEsState filters search results 2`] = `
+exports[`getEsState filters search results and excludes config type hits 2`] = `
 Object {
   "index": ".kibana",
   "size": 1000,
