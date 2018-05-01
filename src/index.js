@@ -1,4 +1,4 @@
-const deploy = require('./deploy')
+const deploy = require('./deploy').deploy
 const args = require('commander')
   .option('deploy', 'diff current kibana dashboards with latest version, and deploy artifact')
   .option('elasticUrl [type]', 'the ES url to use to connect')

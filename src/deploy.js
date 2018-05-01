@@ -1,12 +1,11 @@
 const elasticsearch = require('elasticsearch')
-const checksum = require('checksum')
 const CHECKSUM_KEY = 'tr-checksum'
 
 function isVersioned (item) {
   return item._source && item._source.config && item._source.config[CHECKSUM_KEY]
 }
 
-async function addItem(dashboard) {
+async function addItem(dashboard, esClient) {
   const params = {
     index: dashboard._index,
     type: dashboard._type,
@@ -14,24 +13,24 @@ async function addItem(dashboard) {
     body: dashboard._source
   }
   try {
-    await esClient.create(params)
+    return await esClient.create(params)
   } catch(e) {
     console.log('CREATE FAILED', e)
   }
 }
-async function deleteItem(dashboard) {
+async function removeItem(dashboard, esClient) {
   const params = {
     index: dashboard._index,
     type: dashboard._type,
     id: dashboard._id,
   }
   try {
-    await esClient.delete(params)
+    return await esClient.delete(params, esClient)
   } catch(e) {
     console.log('DELETE FAILED', e)
   }
 }
-async function updateItem(dashboard) {
+async function updateItem(dashboard, esClient) {
   const params = {
     index: dashboard._index,
     type: dashboard._type,
@@ -39,10 +38,49 @@ async function updateItem(dashboard) {
     body: {doc: dashboard._source}
   }
   try {
-    await esClient.update(params)
+    return await esClient.update(params)
   } catch(e) {
     console.log('UPDATE FAILED', e)
   }
+}
+
+async function getEsState(esClient) {
+  const esState = await esClient.search({
+    index: '.kibana',
+    type: 'doc',
+    size: 1000
+  })
+
+  return esState.hits.hits.filter(item => {
+    return item._source.type !== 'config' && isVersioned(item)
+  })
+}
+
+async function doUpdates(newState, currentState, esClient, dryRun) {
+  let created = removed = updated = 0
+
+  newState.forEach(async newItem => {
+    const newChecksum = newItem._source.config[CHECKSUM_KEY]
+    const existingItem = currentState.find(oldItem => oldItem._id === newItem._id)
+    if (existingItem) {
+      const existingChecksum = existingItem._source.config[CHECKSUM_KEY]
+      if(newChecksum !== existingChecksum){
+        updated++
+        if(!dryRun) updateItem(newItem, esClient)
+      }
+    } else {
+      created++
+      if(!dryRun) addItem(newItem, esClient)
+    }
+  })
+  currentState.forEach(item => {
+    const itemRemoved = newState.find(newItem => newItem._id === item._id)
+    if(!itemRemoved) {
+      removed++
+      if(!dryRun) removeItem(item, esClient)
+    }
+  })
+  return {created, removed, updated}
 }
 
 async function deploy(elasticUrl = process.env.ELASTIC_URL, dryRun) {
@@ -54,44 +92,17 @@ async function deploy(elasticUrl = process.env.ELASTIC_URL, dryRun) {
     apiVersion: '6.2',
     log: 'error'
   })
+  const currentState = await getEsState(esClient)
 
-  const esState = await esClient.search({
-    index: '.kibana',
-    type: 'doc',
-    size: 1000
-  })
-
-  const currentState = esState.hits.hits.filter(item => {
-    return item._source.type !== 'config' && isVersioned(item)
-  })
-
-  let created = 0
-  let deleted = 0
-  let updated = 0
-
-  if(currentState.length !== 0) {
-    newState.forEach(newItem => {
-      const newChecksum = newItem._source.config[CHECKSUM_KEY]
-      const existingItem = currentState.find(oldItem => oldItem._id === newItem._id)
-      if (existingItem) {
-        if(newChecksum !== existingItem._source.config[CHECKSUM_KEY]){
-          updated++
-          !dryRun && updateItem(newItem)
-        }
-      } else {
-        created++
-        !dryRun && addItem(newItem)
-      }
-    })
-    currentState.forEach(item => {
-      const removed = newState.find(newItem => newItem._id === item._id)
-      if(!removed) {
-        deleted++
-        !dryRun && removeItem(item)
-      }
-    })
-  }
-  console.log(`created ${created}, deleted ${deleted}, updated ${updated}`)
+  const { created, removed, updated } = await doUpdates(newState, currentState, esClient, dryRun)
+  console.log(`created ${created}, removed ${removed}, updated ${updated}`)
 }
 
-module.exports = deploy
+module.exports = {
+  addItem,
+  deploy,
+  doUpdates,
+  getEsState,
+  removeItem,
+  updateItem
+}

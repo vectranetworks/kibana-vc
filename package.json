@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "ELASTIC_URL=\"http://localhost:9200\" node src/index.js deploy --dry-run",
-    "test": "test"
+    "deploy": "ELASTIC_URL=\"http://localhost:9200\" node src/index.js deploy",
+    "test": "jest src/.*.test.js"
   },
   "repository": {
     "type": "git",
