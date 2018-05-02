@@ -9,19 +9,19 @@ async function getState(path) {
   debug(`analyzing path ${path}`)
   if (isLocalPath(path)) {
     debug('local file path')
-    let pathToFile
     if (isRelative(path)) {
       debug(`relative path`)
-      pathToFile = join(process.cwd(), path)
+      path = join(process.cwd(), path)
     } else {
-      debug(`absolut path`)
-      pathToFile = path
+      debug(`absolute path`)
     }
     return require(pathToFile)
   } else {
     if (isS3Path(path)) {
       // TODO: deal with S3
       throw new Error('S3 upload is not currently supported')
+    } else {
+      throw new Error('HTTP(S) upload is not currently supported')
     }
   }
 }
