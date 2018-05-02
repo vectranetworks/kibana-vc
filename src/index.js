@@ -17,7 +17,7 @@ program
     try {
       await deploy({
         stateFilePath,
-        kibanaIndexName: args.kibanaIndexName,
+        kibanaIndexName: args.kibanaIndex,
         host: args.host,
         port: args.port,
         dryRun: args.dryRun

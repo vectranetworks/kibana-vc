@@ -15,7 +15,7 @@ async function getState(path) {
     } else {
       debug(`absolute path`)
     }
-    return require(pathToFile)
+    return require(path)
   } else {
     if (isS3Path(path)) {
       // TODO: deal with S3

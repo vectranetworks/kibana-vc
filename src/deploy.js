@@ -49,16 +49,23 @@ async function deploy({
   dryRun
 }) {
   debug('Deploying Kibana Dashboard')
-  debug(`Getting state file ${stateFilePath}`)
-  const stateFile = await getState(stateFilePath)
-  const newState = stateFile.filter(isConfig)
+  // TODO: listen on errors
   const elasticUrl = `${host}:${port}`
-
   const esClient = await new elasticsearch.Client({
     host: elasticUrl,
     apiVersion: '6.2',
     log: 'error'
   })
+  const stateFile = await getState(stateFilePath)
+  await initialize({
+    esClient,
+    kibanaIndexName,
+    state: stateFile
+  })
+  const newState = stateFile.filter(isConfig)
+
+
+
   const esState = await getEsState(esClient)
   const currentState = esState.hits.hits.filter(item => isConfig(item) && isVersioned(item))
   const { created, removed, updated } = await doUpdates(esClient, newState, currentState, dryRun)
