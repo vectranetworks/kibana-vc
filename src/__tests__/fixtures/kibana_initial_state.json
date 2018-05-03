@@ -541,29 +541,6 @@
   {
     "_index": ".kibana",
     "_type": "doc",
-    "_id": "visualization:8a924ff0-4d7f-11e8-8d68-419cfa041388",
-    "_score": 1.0,
-    "_source": {
-      "type": "visualization",
-      "updated_at": "2018-05-01T20:38:01.582Z",
-      "config": {
-        "tr-checksum": "init"
-      },
-      "visualization": {
-        "title": "test",
-        "visState": "{\"title\":\"test\",\"type\":\"vega\",\"params\":{\"spec\":\"{\\n  $schema: https://vega.github.io/schema/vega-lite/v2.json\\n  mark:point\\n  title: Event counts from all indexes\\n  data: {\\n    url: {\\n      %context%: true\\n      %timefield%: @timestamp\\n      index: metadata_isession*\\n      body: {\\n        size: 10000\\n        _source: [ \\\"@timestamp\\\", \\\"ts\\\", \\\"orig_hostname\\\", \\\"orig_ip_bytes\\\" ]\\n      }\\n    }\\n    format: { property: \\\"hits.hits\\\" }\\n  }\\n  \\n  transform: [\\n    {\\n      calculate: \\\"toDate(datum._souce['@timestamp'])\\\"\\n      as:\\\"time\\\"\\n    }\\n  ]\\n  \\n  encoding: {\\n    x: {\\n      field: time\\n      type: temporal\\n      axis: {title: false}\\n    }\\n    y: {\\n      field: orig_ip_bytes\\n      type: quantitative\\n      axis: { title: \\\"Bytes\\\" }\\n    }\\n  }\\n}\\n\"},\"aggs\":[]}",
-        "uiStateJSON": "{}",
-        "description": "",
-        "version": 1,
-        "kibanaSavedObjectMeta": {
-          "searchSourceJSON": "{}"
-        }
-      }
-    }
-  },
-  {
-    "_index": ".kibana",
-    "_type": "doc",
     "_id": "visualization:1eb0aef0-4d78-11e8-8d68-419cfa041388",
     "_score": 1.0,
     "_source": {
