@@ -1,5 +1,5 @@
 {
-  "name": "kibana-vc",
+  "name": "@vectraai/kibana-vc",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.4.1",
     "commander": "^2.15.1",
     "elasticsearch": "^14.2.2",
     "is-relative": "^1.0.0"

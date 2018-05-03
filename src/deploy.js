@@ -26,7 +26,7 @@ async function doUpdates(esClient, newState, currentState, dryRun) {
     } else {
       created++
       if (!dryRun) {
-        await addItem(newItem, esClient)
+        await addItem(esClient, newItem)
       }
     }
   })
@@ -35,7 +35,7 @@ async function doUpdates(esClient, newState, currentState, dryRun) {
     if (!itemRemoved) {
       removed++
       if (!dryRun) {
-        await removeItem(item, esClient)
+        await removeItem(esClient, item)
       }
     }
   })
@@ -57,7 +57,7 @@ async function deploy({
     apiVersion: '6.2',
     log: 'error'
   })
-  const targetState = await getState(stateFilePath)
+  const targetState = await getState(stateFilePath, { kibanaIndexName })
   await initialize({
     esClient,
     kibanaIndexName,

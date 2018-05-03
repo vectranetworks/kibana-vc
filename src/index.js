@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 const program = require('commander');
+const chalk = require('chalk');
 const { deploy } = require('./deploy')
 
 program
   .version('0.0.1')
-
 
 program
   .command('deploy <stateFilePath>')
@@ -29,5 +29,14 @@ program
     }
   })
 
-program.parse(process.argv);
+program.command('*')
+  .action(function (env) {
+    console.error(chalk.red(`Unrecognized command "${env}"`))
+    program.outputHelp()
+  });
 
+
+program.parse(process.argv);
+if (!process.argv[2]) {
+  program.outputHelp()
+}

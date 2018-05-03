@@ -1,4 +1,4 @@
-async function addItem(item, esClient) {
+async function addItem(esClient, item) {
   const params = {
     index: item._index,
     type: item._type,
@@ -12,7 +12,7 @@ async function addItem(item, esClient) {
     throw e;
   }
 }
-async function removeItem(item, esClient) {
+async function removeItem(esClient, item) {
   const params = {
     index: item._index,
     type: item._type,
@@ -40,10 +40,10 @@ async function updateItem(esClient, item) {
   }
 }
 
-async function getEsState(esClient) {
+async function getEsState(esClient, { kibanaIndexName = '.kibana' }) {
   // by default we'll only get 10 results back, thus adding the 1000 limit
-  return await esClient.search({
-    index: '.kibana',
+  return esClient.search({
+    index: kibanaIndexName,
     type: 'doc',
     size: 1000
   })
