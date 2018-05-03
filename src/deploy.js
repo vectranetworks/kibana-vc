@@ -47,10 +47,9 @@ async function deploy({
   kibanaIndexName,
   host,
   port,
-  dryRun
+  dryRun = false
 }) {
   debug('Deploying Kibana Dashboard')
-  // TODO: listen on errors
   const elasticUrl = `${host}:${port}`
   const esClient = await new elasticsearch.Client({
     host: elasticUrl,
@@ -61,14 +60,11 @@ async function deploy({
   await initialize({
     esClient,
     kibanaIndexName,
-    state: targetState
+    state: targetState,
+    dryRun
   })
   const targetStateFiltered = targetState.filter(isConfig)
-
-
-
-  const esState = await getEsState(esClient)
-  // const currentState = esState.hits.hits.filter(item => isConfig(item) && isVersioned(item))
+  const esState = await getEsState(esClient, { kibanaIndexName })
   const currentState = esState.hits.hits.filter(item => isConfig(item))
   const { created, removed, updated } = await doUpdates(esClient, targetStateFiltered, currentState, dryRun)
   console.log(`created ${created}, removed ${removed}, updated ${updated}`)

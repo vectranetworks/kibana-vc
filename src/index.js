@@ -12,7 +12,7 @@ program
   .option('-h, --host [url]', 'ElasticSearch host', 'http://127.0.0.1')
   .option('-p, --port [port]', 'ElasticSearch port', 9200)
   .option('-i, --kibanaIndex [kibanaIndex]', 'Kibana Index', '.kibana')
-  .option('--dry-run', `don't make any changes to anything`)
+  .option('--dry-run', `don't make any changes to anything`, false)
   .action(async (stateFilePath, args) => {
     try {
       await deploy({

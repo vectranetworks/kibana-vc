@@ -3,11 +3,11 @@ const { initializeKibanaConfig } = require('./initializeKibanaConfig')
 const { initializeKibanaIndex } = require('./initializeKibanaIndex')
 const { initializeKibanaTemplate } = require('./initializeKibanaTemplate')
 
-const initialize = async ({ esClient, kibanaIndexName, state }) => {
+const initialize = async ({ esClient, kibanaIndexName, state, dryRun }) => {
   debug('Starting Kibana initialization')
-  await initializeKibanaTemplate(esClient, kibanaIndexName)
-  await initializeKibanaIndex(esClient, kibanaIndexName)
-  await initializeKibanaConfig(esClient, { kibanaIndexName, state })
+  await initializeKibanaTemplate(esClient, { kibanaIndexName, dryRun })
+  await initializeKibanaIndex(esClient, { kibanaIndexName, dryRun })
+  await initializeKibanaConfig(esClient, { kibanaIndexName, state, dryRun })
 }
 
 module.exports = {

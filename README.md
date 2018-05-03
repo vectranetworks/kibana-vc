@@ -26,3 +26,12 @@ This is a CLI tool that:
 TODO:
 * Fetch state from your Kibana (ES)
 * Deploy state to remote Kibana (ES)
+
+
+## TODO:
+
+- Write statefile in kibana index in a special document for kibana-vc. That way we can track state more easily and be independent of customers changes
+- More verbose diff (like tf does)
+- Fully featured `dryRun` more
+- Version Control with git
+- Fetch Remote State

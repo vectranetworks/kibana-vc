@@ -22,7 +22,7 @@ const createKibanaTemplate = async (esClient, { templateId, template }) => {
 }
 
 
-const initializeKibanaTemplate = async (esClient, kibanaIndexName) => {
+const initializeKibanaTemplate = async (esClient, { kibanaIndexName, dryRun }) => {
   debug(`Initializing Kibana Template with Index name: ${kibanaIndexName}`)
   const templateData = generateKibanaIndexTemplate(kibanaIndexName)
   if (! await doesIndexTemplateExist(esClient, templateData.templateId)) {

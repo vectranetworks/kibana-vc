@@ -56,11 +56,14 @@ const doesConfigExist = async (esClient, {
   return exist
 }
 
-const initializeKibanaConfig = async (esClient, { kibanaIndexName, state }) => {
+const initializeKibanaConfig = async (esClient, { kibanaIndexName, state, dryRun }) => {
   debug(`Initializing Kibana config`)
   // TODO: support multiple config files
   const configFile = state.find(doc => doc._source.type === 'config')
   if (! await doesConfigExist(esClient, { kibanaIndexName, type: configFile._type, id: configFile._id })) {
+    if (dryRun) {
+      return true
+    }
     await createConfig(esClient, {
       kibanaIndexName,
       type: configFile._type,

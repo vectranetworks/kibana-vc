@@ -1,0 +1,20 @@
+
+# Playground
+playground
+
+# Artifacts
+tr-lambdas*
+build/
+
+# OS files
+.DS_Store
+
+# Test coverae
+coverage/
+
+# Test Artifacts
+jest_0
+
+# Tests
+src/__tests__/
+src/__mocks__/
