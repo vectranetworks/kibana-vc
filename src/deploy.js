@@ -14,12 +14,13 @@ async function doUpdates(esClient, newState, currentState, dryRun) {
   newState.forEach(async newItem => {
     const newChecksum = newItem._source.config[CHECKSUM_KEY]
     const existingItem = currentState.find(oldItem => oldItem._id === newItem._id)
+
     if (existingItem) {
-      const existingChecksum = existingItem._source.config[CHECKSUM_KEY]
+      const existingChecksum = existingItem._source.config && existingItem._source.config[CHECKSUM_KEY]
       if (newChecksum !== existingChecksum) {
         updated++
         if (!dryRun) {
-          await updateItem(newItem, esClient)
+          await updateItem(esClient, newItem)
         }
       }
     } else {
@@ -29,7 +30,7 @@ async function doUpdates(esClient, newState, currentState, dryRun) {
       }
     }
   })
-  currentState.forEach(async item => {
+  currentState.filter(isVersioned).forEach(async item => {
     const itemRemoved = newState.find(newItem => newItem._id === item._id)
     if (!itemRemoved) {
       removed++
@@ -56,19 +57,20 @@ async function deploy({
     apiVersion: '6.2',
     log: 'error'
   })
-  const stateFile = await getState(stateFilePath)
+  const targetState = await getState(stateFilePath)
   await initialize({
     esClient,
     kibanaIndexName,
-    state: stateFile
+    state: targetState
   })
-  const newState = stateFile.filter(isConfig)
+  const targetStateFiltered = targetState.filter(isConfig)
 
 
 
   const esState = await getEsState(esClient)
-  const currentState = esState.hits.hits.filter(item => isConfig(item) && isVersioned(item))
-  const { created, removed, updated } = await doUpdates(esClient, newState, currentState, dryRun)
+  // const currentState = esState.hits.hits.filter(item => isConfig(item) && isVersioned(item))
+  const currentState = esState.hits.hits.filter(item => isConfig(item))
+  const { created, removed, updated } = await doUpdates(esClient, targetStateFiltered, currentState, dryRun)
   console.log(`created ${created}, removed ${removed}, updated ${updated}`)
 }
 

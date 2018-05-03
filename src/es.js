@@ -7,7 +7,7 @@ async function addItem(item, esClient) {
   }
   try {
     await esClient.create(params)
-  } catch(e) {
+  } catch (e) {
     console.log('CREATE FAILED', e)
     throw e;
   }
@@ -20,21 +20,21 @@ async function removeItem(item, esClient) {
   }
   try {
     await esClient.delete(params, esClient)
-  } catch(e) {
+  } catch (e) {
     console.log('DELETE FAILED', e)
     throw e;
   }
 }
-async function updateItem(item, esClient) {
+async function updateItem(esClient, item) {
   const params = {
     index: item._index,
     type: item._type,
     id: item._id,
-    body: {doc: item._source}
+    body: item._source
   }
   try {
     await esClient.index(params)
-  } catch(e) {
+  } catch (e) {
     console.log('UPDATE FAILED', e)
     throw e;
   }
