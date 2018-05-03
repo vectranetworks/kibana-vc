@@ -1,6 +1,6 @@
 {
   "name": "@vectraai/kibana-vc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "bin": "./src/index.js",
@@ -17,10 +17,12 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "commander": "^2.15.1",
+    "debug": "^3.1.0",
     "elasticsearch": "^14.2.2",
     "is-relative": "^1.0.0"
   },
   "devDependencies": {
+    "eslint-config-standard": "^11.0.0",
     "jest": "^22.4.3"
   }
 }

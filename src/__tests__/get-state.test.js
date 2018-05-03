@@ -1,6 +1,5 @@
 const { getState, isLocalPath, isS3Path } = require('../get-state')
 const { localPath, httpPath, s3Path } = require('./fixtures/test-paths')
-const got = require('got')
 
 test('isLocalPath correctly identifies paths', () => {
   expect(isLocalPath(localPath)).toBe(true)
