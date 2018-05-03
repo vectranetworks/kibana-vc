@@ -5,8 +5,8 @@
   "main": "index.js",
   "bin": "./src/index.js",
   "scripts": {
-    "deploy": "ELASTIC_URL=\"http://localhost:9200\" node src/index.js deploy",
-    "test": "jest src/.*.test.js"
+    "deploy": "node src/index.js deploy",
+    "test": "jest src/.*.test.js --coverage"
   },
   "repository": {
     "type": "git",
