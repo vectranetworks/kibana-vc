@@ -68,6 +68,10 @@ Deploy to remote running ES
 kibana-vc deploy -h "ELASTIC_HOST" ${pathToStateFile}
 ```
 
+## Statefile
+
+State file is a json document that represent Kibana state. We are getting it from "Dev" Kibana and version controling it using git (TODO). Example statefile with initial Kibana is located in `src/__tests__/fixtures/kibana_initial_state.json`
+
 ## TODO:
 
 - Fetch state from your Kibana (ES)
