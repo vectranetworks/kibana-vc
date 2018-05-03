@@ -35,3 +35,5 @@ TODO:
 - Fully featured `dryRun` more
 - Version Control with git
 - Fetch Remote State
+- Support Multiple config files
+- Support Multiple Kibana versions
