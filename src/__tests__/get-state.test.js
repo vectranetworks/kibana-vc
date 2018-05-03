@@ -14,5 +14,5 @@ test('isS3Path correctly identifies paths', () => {
 })
 
 test('getState should request the correct file', async () => {
-  expect(await getState(localPath)).toMatchSnapshot()
+  expect(await getState(localPath, {})).toMatchSnapshot()
 })
