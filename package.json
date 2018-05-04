@@ -1,15 +1,39 @@
 {
-  "name": "kibana-dashboard",
-  "version": "0.0.1",
+  "name": "@vectraai/kibana-vc",
+  "version": "0.0.2",
   "description": "",
-  "main": "index.js",
+  "bin": "./src/index.js",
+  "files": [
+    "src/**/*",
+    "!src/**/__tests__/",
+    "!src/**/__mocks__/"
+  ],
   "scripts": {
-    "test": "test"
+    "deploy": "node src/index.js deploy",
+    "test:lint": "eslint src/",
+    "test:unit": "jest src/.*.test.js --coverage"
   },
   "repository": {
     "type": "git",
     "url": "ssh://git@sourcecode.vectra.io:7999/tr/kibana-dashboard.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.15.1",
+    "debug": "^3.1.0",
+    "elasticsearch": "^14.2.2",
+    "is-relative": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "jest": "^22.4.3"
+  }
 }
