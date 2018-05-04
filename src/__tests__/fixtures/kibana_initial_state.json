@@ -516,31 +516,6 @@
   {
     "_index": ".kibana",
     "_type": "doc",
-    "_id": "dashboard:5c23f230-4d67-11e8-8d68-419cfa041388",
-    "_score": 1.0,
-    "_source": {
-      "type": "dashboard",
-      "updated_at": "2018-05-01T21:18:59.302Z",
-      "config": {
-        "tr-checksum": "init"
-      },
-      "dashboard": {
-        "title": "Robin's Dashboard (Network)",
-        "hits": 0,
-        "description": "",
-        "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":12,\"h\":4,\"i\":\"1\"},\"embeddableConfig\":{\"spy\":null},\"id\":\"02da5240-4d68-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"2\",\"gridData\":{\"x\":6,\"y\":4,\"w\":6,\"h\":5,\"i\":\"2\"},\"id\":\"3e7e0a00-4d75-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":4,\"w\":6,\"h\":5,\"i\":\"3\"},\"id\":\"2e997a10-4d76-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"4\",\"gridData\":{\"x\":0,\"y\":9,\"w\":12,\"h\":4,\"i\":\"4\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"1eb0aef0-4d78-11e8-8d68-419cfa041388\"}]",
-        "optionsJSON": "{\"darkTheme\":true,\"hidePanelTitles\":false,\"useMargins\":true}",
-        "version": 1,
-        "timeRestore": false,
-        "kibanaSavedObjectMeta": {
-          "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
-        }
-      }
-    }
-  },
-  {
-    "_index": ".kibana",
-    "_type": "doc",
     "_id": "visualization:1eb0aef0-4d78-11e8-8d68-419cfa041388",
     "_score": 1.0,
     "_source": {
@@ -668,16 +643,16 @@
     "_score": 1.0,
     "_source": {
       "type": "dashboard",
-      "updated_at": "2018-05-02T17:43:04.394Z",
+      "updated_at": "2018-05-03T14:41:05.339Z",
       "config": {
-        "tr-checksum": "init"
+        "tr-checksum": "init2"
       },
       "dashboard": {
-        "title": "Host Dashboard Vectra",
+        "title": "Host Dashboard",
         "hits": 0,
         "description": "",
-        "panelsJSON": "[{\"panelIndex\":\"9\",\"gridData\":{\"x\":0,\"y\":0,\"w\":6,\"h\":3,\"i\":\"9\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"00ea4aa0-489d-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"10\",\"gridData\":{\"x\":6,\"y\":0,\"w\":6,\"h\":3,\"i\":\"10\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"59da5c10-48a0-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"11\",\"gridData\":{\"x\":0,\"y\":3,\"w\":6,\"h\":3,\"i\":\"11\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"1a792fb0-48aa-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"12\",\"gridData\":{\"x\":6,\"y\":3,\"w\":6,\"h\":3,\"i\":\"12\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"5740c040-48b2-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"13\",\"gridData\":{\"x\":0,\"y\":6,\"w\":12,\"h\":3,\"i\":\"13\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"d9ac58a0-48a3-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"14\",\"gridData\":{\"x\":0,\"y\":9,\"w\":6,\"h\":3,\"i\":\"14\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"fca79400-44cf-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"15\",\"gridData\":{\"x\":6,\"y\":9,\"w\":6,\"h\":3,\"i\":\"15\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"311d6b30-48a7-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"16\",\"gridData\":{\"x\":0,\"y\":12,\"w\":6,\"h\":3,\"i\":\"16\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"0c871db0-496b-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"17\",\"gridData\":{\"x\":6,\"y\":12,\"w\":6,\"h\":3,\"i\":\"17\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"50acd430-49a7-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"18\",\"gridData\":{\"x\":0,\"y\":15,\"w\":12,\"h\":4,\"i\":\"18\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"6e3552d0-47f8-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"19\",\"gridData\":{\"x\":0,\"y\":19,\"w\":12,\"h\":4,\"i\":\"19\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"04535f20-4801-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"20\",\"gridData\":{\"x\":0,\"y\":23,\"w\":12,\"h\":4,\"i\":\"20\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"89ce2740-4e1c-11e8-93cf-57838bc3a575\"},{\"panelIndex\":\"21\",\"gridData\":{\"x\":0,\"y\":27,\"w\":6,\"h\":3,\"i\":\"21\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"dbacfe00-497c-11e8-8d68-419cfa041388\"},{\"panelIndex\":\"22\",\"gridData\":{\"x\":6,\"y\":27,\"w\":6,\"h\":3,\"i\":\"22\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"e98f3440-4e1b-11e8-93cf-57838bc3a575\"},{\"panelIndex\":\"23\",\"gridData\":{\"x\":0,\"y\":30,\"w\":12,\"h\":3,\"i\":\"23\"},\"version\":\"6.2.2\",\"type\":\"visualization\",\"id\":\"178f61d0-47dc-11e8-8d68-419cfa041388\"}]",
-        "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+        "panelsJSON": "[{\"panelIndex\":\"2\",\"gridData\":{\"x\":0,\"y\":9,\"w\":6,\"h\":3,\"i\":\"2\"},\"id\":\"fca79400-44cf-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":19,\"w\":12,\"h\":3,\"i\":\"3\"},\"id\":\"6e3552d0-47f8-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"4\",\"gridData\":{\"x\":0,\"y\":34,\"w\":12,\"h\":3,\"i\":\"4\"},\"id\":\"178f61d0-47dc-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"5\",\"gridData\":{\"x\":0,\"y\":31,\"w\":12,\"h\":3,\"i\":\"5\"},\"embeddableConfig\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":4,\"direction\":null}}}},\"id\":\"04535f20-4801-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"6\",\"gridData\":{\"x\":0,\"y\":3,\"w\":6,\"h\":3,\"i\":\"6\"},\"id\":\"00ea4aa0-489d-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"7\",\"gridData\":{\"x\":0,\"y\":0,\"w\":12,\"h\":3,\"i\":\"7\"},\"id\":\"d9ac58a0-48a3-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"8\",\"gridData\":{\"x\":6,\"y\":3,\"w\":6,\"h\":3,\"i\":\"8\"},\"id\":\"59da5c10-48a0-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"9\",\"gridData\":{\"x\":0,\"y\":6,\"w\":6,\"h\":3,\"i\":\"9\"},\"id\":\"1a792fb0-48aa-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"10\",\"gridData\":{\"x\":6,\"y\":6,\"w\":6,\"h\":3,\"i\":\"10\"},\"id\":\"5740c040-48b2-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"11\",\"gridData\":{\"x\":6,\"y\":9,\"w\":6,\"h\":3,\"i\":\"11\"},\"id\":\"311d6b30-48a7-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"12\",\"gridData\":{\"x\":0,\"y\":12,\"w\":6,\"h\":3,\"i\":\"12\"},\"id\":\"0c871db0-496b-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"13\",\"gridData\":{\"x\":0,\"y\":28,\"w\":12,\"h\":3,\"i\":\"13\"},\"id\":\"dbacfe00-497c-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"14\",\"gridData\":{\"x\":6,\"y\":12,\"w\":6,\"h\":3,\"i\":\"14\"},\"id\":\"50acd430-49a7-11e8-8d68-419cfa041388\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"15\",\"gridData\":{\"x\":6,\"y\":15,\"w\":6,\"h\":4,\"i\":\"15\"},\"title\":\"Total Internal RPC Usage To\",\"id\":\"89ce2740-4e1c-11e8-93cf-57838bc3a575\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"16\",\"gridData\":{\"x\":6,\"y\":22,\"w\":6,\"h\":3,\"i\":\"16\"},\"title\":\"Internal Remote Execution To\",\"id\":\"e98f3440-4e1b-11e8-93cf-57838bc3a575\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"17\",\"gridData\":{\"x\":0,\"y\":15,\"w\":6,\"h\":4,\"i\":\"17\"},\"title\":\"Total Internal RPC Usage From\",\"id\":\"eed17120-4e25-11e8-93cf-57838bc3a575\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"18\",\"gridData\":{\"x\":0,\"y\":22,\"w\":6,\"h\":3,\"i\":\"18\"},\"title\":\"Internal Remote Execution From\",\"id\":\"dae67420-4e26-11e8-93cf-57838bc3a575\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"19\",\"gridData\":{\"x\":0,\"y\":25,\"w\":6,\"h\":3,\"i\":\"19\"},\"id\":\"779d66f0-4e29-11e8-93cf-57838bc3a575\",\"type\":\"visualization\",\"version\":\"6.2.2\"},{\"panelIndex\":\"20\",\"gridData\":{\"x\":6,\"y\":25,\"w\":6,\"h\":3,\"i\":\"20\"},\"id\":\"c45c0230-4e29-11e8-93cf-57838bc3a575\",\"type\":\"visualization\",\"version\":\"6.2.2\"}]",
+        "optionsJSON": "{\"darkTheme\":true,\"hidePanelTitles\":false,\"useMargins\":true}",
         "version": 1,
         "timeRestore": false,
         "kibanaSavedObjectMeta": {
