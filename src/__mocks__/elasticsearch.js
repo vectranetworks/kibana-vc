@@ -1,4 +1,4 @@
-const { INITIAL_STATE } = require('./es-mock-state')
+const { INITIAL_STATE } = require('./esMockState')
 
 class Client {
   constructor () {
