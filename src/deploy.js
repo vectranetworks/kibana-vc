@@ -8,8 +8,10 @@ const CHECKSUM_KEY = 'tr-checksum'
 const isVersioned = (item) => item._source && item._source.config && item._source.config[CHECKSUM_KEY]
 const isConfig = (item) => item._source.type !== 'config'
 
-async function doUpdates (esClient, newState, currentState, dryRun) {
-  let created = removed = updated = 0
+const doUpdates = async (esClient, newState, currentState, dryRun) => {
+  let created = 0
+  let removed = 0
+  let updated = 0
 
   newState.forEach(async newItem => {
     const newChecksum = newItem._source.config[CHECKSUM_KEY]
@@ -42,13 +44,13 @@ async function doUpdates (esClient, newState, currentState, dryRun) {
   return { created, removed, updated }
 }
 
-async function deploy ({
+const deploy = async ({
   stateFilePath,
   kibanaIndexName,
   host,
   port,
   dryRun = false
-}) {
+}) => {
   debug('Deploying Kibana Dashboard')
   const elasticUrl = `${host}:${port}`
   const esClient = await new elasticsearch.Client({

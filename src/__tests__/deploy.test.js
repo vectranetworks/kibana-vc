@@ -1,5 +1,5 @@
 const elasticsearch = require('elasticsearch')
-const { DIFF_STATE, INITIAL_STATE, MOCK_DASHBOARD } = require('../__mocks__/es-mock-state')
+const { DIFF_STATE, INITIAL_STATE } = require('../__mocks__/es-mock-state')
 const { doUpdates } = require('../deploy')
 
 test('update to es are done correctly', () => {

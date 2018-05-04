@@ -6,7 +6,8 @@
   "bin": "./src/index.js",
   "scripts": {
     "deploy": "node src/index.js deploy",
-    "test": "jest src/.*.test.js --coverage"
+    "test:lint": "eslint src/",
+    "test:unit": "jest src/.*.test.js --coverage"
   },
   "repository": {
     "type": "git",
