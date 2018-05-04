@@ -1,6 +1,6 @@
 const elasticsearch = require('elasticsearch')
 const { addItem, getEsState, removeItem, updateItem } = require('./es')
-const { getState } = require('./get-state')
+const { getState } = require('./getState')
 const { initialize } = require('./initialize')
 const debug = require('debug')('deploy')
 const CHECKSUM_KEY = 'tr-checksum'

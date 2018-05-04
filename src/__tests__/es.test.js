@@ -1,5 +1,5 @@
 const elasticsearch = require('elasticsearch')
-const { MOCK_DASHBOARD } = require('../__mocks__/es-mock-state')
+const { MOCK_DASHBOARD } = require('../__mocks__/esMockState')
 const { addItem, getEsState, removeItem, updateItem } = require('../es')
 
 const mockClient = new elasticsearch.Client()
