@@ -1,9 +1,9 @@
 # Kibana-dashboard
 
 This is a CLI tool that:
-* takes care of source controling Kibana dashboards
+* Source controls Kibana default dashboards
 * Fetching remote Kibana state
-* Deploying new Kibana State
+* Deploying new Kibana state
 
 
 ## Notes
@@ -17,10 +17,6 @@ This is a CLI tool that:
 ```
 npm i -g @vectraai/kibana-vc
 ```
-
-## Dev infrastructure
-
-Run `docker-compose up` to spin up local kibana + elasticsearch
 
 ## Usage
 
@@ -68,16 +64,21 @@ Deploy to remote running ES
 kibana-vc deploy -h "ELASTIC_HOST" ${pathToStateFile}
 ```
 
-## Statefile
+## Kibana state file
 
 State file is a json document that represent Kibana state. We are getting it from "Dev" Kibana and version controling it using git (TODO). Example statefile with initial Kibana is located in `src/__tests__/fixtures/kibana_initial_state.json`
 
+## Dev infrastructure
+
+Run `docker-compose up` to spin up local kibana + elasticsearch
+
 ## TODO:
 
+- Support S3 as a state storage
 - Fetch state from your Kibana (ES)
 - Write statefile in kibana index in a special document for kibana-vc. That way we can track state more easily and be independent of customers changes
 - More verbose diff (like tf does)
-- Fully featured `dryRun` more
+- Fully featured `dryRun` with initialization support
 - Version Control with git
 - Fetch Remote State
 - Support Multiple config files
