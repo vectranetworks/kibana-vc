@@ -2,8 +2,12 @@
   "name": "@vectraai/kibana-vc",
   "version": "0.0.2",
   "description": "",
-  "main": "index.js",
   "bin": "./src/index.js",
+  "files": [
+    "src/**/*",
+    "!src/**/__tests__/",
+    "!src/**/__mocks__/"
+  ],
   "scripts": {
     "deploy": "node src/index.js deploy",
     "test:lint": "eslint src/",
