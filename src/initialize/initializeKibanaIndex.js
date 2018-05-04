@@ -26,13 +26,11 @@ const doesIndexExist = async (esClient, indexName) => {
 
 const initializeKibanaIndex = async (esClient, { kibanaIndexName, dryRun }) => {
   debug(`Initializing Kibana Index: ${kibanaIndexName}`)
-  if (! await doesIndexExist(esClient, kibanaIndexName)) {
+  if (!await doesIndexExist(esClient, kibanaIndexName)) {
     await createIndex(esClient, kibanaIndexName)
   }
   return true
 }
-
-
 
 module.exports = {
   initializeKibanaIndex

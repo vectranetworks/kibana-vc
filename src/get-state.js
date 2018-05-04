@@ -1,11 +1,11 @@
 const debug = require('debug')('get-state')
 const { join } = require('path')
-const isRelative = require('is-relative');
+const isRelative = require('is-relative')
 
 const isLocalPath = path => !/:\/\//.test(path)
 const isS3Path = path => /s3:\/\//.test(path)
 
-async function getState(path) {
+async function getState (path) {
   debug(`analyzing path ${path}`)
   if (isLocalPath(path)) {
     debug('local file path')

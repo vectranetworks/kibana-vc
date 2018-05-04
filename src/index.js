@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const program = require('commander');
-const chalk = require('chalk');
+const program = require('commander')
+const chalk = require('chalk')
 const { deploy } = require('./deploy')
 
 program
@@ -12,7 +12,7 @@ program
   .option('-h, --host [url]', 'ElasticSearch host', 'http://127.0.0.1')
   .option('-p, --port [port]', 'ElasticSearch port', 9200)
   .option('-i, --kibanaIndex [kibanaIndex]', 'Kibana Index', '.kibana')
-  .option('--dry-run', `don't make any changes to anything`, false)
+  .option('--dry-run', 'Dry run without making any changes', false)
   .action(async (stateFilePath, args) => {
     try {
       await deploy({
@@ -33,10 +33,9 @@ program.command('*')
   .action(function (env) {
     console.error(chalk.red(`Unrecognized command "${env}"`))
     program.outputHelp()
-  });
+  })
 
-
-program.parse(process.argv);
+program.parse(process.argv)
 if (!process.argv[2]) {
   program.outputHelp()
 }

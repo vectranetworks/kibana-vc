@@ -10,7 +10,6 @@ const doesIndexTemplateExist = async (esClient, templateName) => {
   return exist
 }
 
-
 const createKibanaTemplate = async (esClient, { templateId, template }) => {
   debug(`Creating Kibana Template: ${templateId}`)
   await esClient.indices.putTemplate({
@@ -21,16 +20,14 @@ const createKibanaTemplate = async (esClient, { templateId, template }) => {
   return true
 }
 
-
 const initializeKibanaTemplate = async (esClient, { kibanaIndexName, dryRun }) => {
   debug(`Initializing Kibana Template with Index name: ${kibanaIndexName}`)
   const templateData = generateKibanaIndexTemplate(kibanaIndexName)
-  if (! await doesIndexTemplateExist(esClient, templateData.templateId)) {
+  if (!await doesIndexTemplateExist(esClient, templateData.templateId)) {
     await createKibanaTemplate(esClient, templateData)
   }
   return true
 }
-
 
 module.exports = {
   initializeKibanaTemplate

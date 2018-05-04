@@ -1,7 +1,7 @@
 const { INITIAL_STATE } = require('./es-mock-state')
 
 class Client {
-  constructor() {
+  constructor () {
     this.create = jest.fn(),
     this.delete = jest.fn(),
     this.index = jest.fn(),

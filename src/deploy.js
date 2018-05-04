@@ -8,7 +8,7 @@ const CHECKSUM_KEY = 'tr-checksum'
 const isVersioned = (item) => item._source && item._source.config && item._source.config[CHECKSUM_KEY]
 const isConfig = (item) => item._source.type !== 'config'
 
-async function doUpdates(esClient, newState, currentState, dryRun) {
+async function doUpdates (esClient, newState, currentState, dryRun) {
   let created = removed = updated = 0
 
   newState.forEach(async newItem => {
@@ -42,7 +42,7 @@ async function doUpdates(esClient, newState, currentState, dryRun) {
   return { created, removed, updated }
 }
 
-async function deploy({
+async function deploy ({
   stateFilePath,
   kibanaIndexName,
   host,
@@ -72,5 +72,5 @@ async function deploy({
 
 module.exports = {
   deploy,
-  doUpdates,
+  doUpdates
 }
