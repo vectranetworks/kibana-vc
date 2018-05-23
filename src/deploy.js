@@ -1,12 +1,8 @@
 const elasticsearch = require('elasticsearch')
-const { addItem, getEsState, removeItem, updateItem } = require('./es')
+const { addItem, getEsState, removeItem, updateItem, CHECKSUM_KEY, isVersioned, isConfig } = require('./es')
 const { getState } = require('./getState')
 const { initialize } = require('./initialize')
 const debug = require('debug')('deploy')
-const CHECKSUM_KEY = 'tr-checksum'
-
-const isVersioned = (item) => item._source && item._source.config && item._source.config[CHECKSUM_KEY]
-const isConfig = (item) => item._source.type !== 'config'
 
 const doUpdates = async (esClient, newState, currentState, dryRun) => {
   let created = 0
@@ -58,7 +54,7 @@ const deploy = async ({
     apiVersion: '6.2',
     log: 'error'
   })
-  const targetState = await getState(stateFilePath, { kibanaIndexName })
+  const targetState = await getState(stateFilePath)
   await initialize({
     esClient,
     kibanaIndexName,

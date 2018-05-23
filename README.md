@@ -37,6 +37,32 @@ kibana-vc --help
     deploy [options] <stateFilePath>
 ```
 
+### Fetch
+
+Run `kibana-vc fetch --help`  for a fetch explanation
+
+```
+kibana-vc fetch --help
+
+  Usage: fetch [options]
+
+  Options:
+
+    -h, --host [url]                 ElasticSearch host (default: http://127.0.0.1)
+    -p, --port [port]                ElasticSearch port (default: 9200)
+    -i, --kibanaIndex [kibanaIndex]  Kibana Index (default: .kibana)
+    -P, --pretty-print               Pretty Print output
+    -h, --help                       output usage information
+
+```
+
+getting the state of the target kibana and writing into the stdout
+We can redirect to a file
+
+`kibana-vc fetch > somefilename.json`
+
+Fetch command generate a file ready to be deployed.
+
 ### Deploy
 
 Run `kibana-vc deploy --help` for a deploy explanation
@@ -57,6 +83,8 @@ kibana-vc deploy --help
 
 #### Examples
 
+Get the state from the remote running Elastic Search. `kibana-vc fetch -h "ELASTIC_HOST" > ${pathToStateFile}`
+
 Deploy to localhost `kibana-vc deploy ${pathToStateFile}`
 
 Deploy to remote running ES
@@ -75,7 +103,6 @@ Run `docker-compose up` to spin up local kibana + elasticsearch
 ## TODO:
 
 - Support S3 as a state storage
-- Fetch state from your Kibana (ES)
 - Write statefile in kibana index in a special document for kibana-vc. That way we can track state more easily and be independent of customers changes
 - More verbose diff (like tf does)
 - Fully featured `dryRun` with initialization support

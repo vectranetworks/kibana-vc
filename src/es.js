@@ -41,6 +41,7 @@ async function updateItem (esClient, item) {
 }
 
 async function getEsState (esClient, { kibanaIndexName = '.kibana' }) {
+  // TODO: recursive fetch
   // by default we'll only get 10 results back, thus adding the 1000 limit
   return esClient.search({
     index: kibanaIndexName,
@@ -49,4 +50,18 @@ async function getEsState (esClient, { kibanaIndexName = '.kibana' }) {
   })
 }
 
-module.exports = { addItem, getEsState, removeItem, updateItem }
+const CHECKSUM_KEY = 'tr-checksum'
+
+const isVersioned = (item) => item._source && item._source.config && item._source.config[CHECKSUM_KEY]
+
+const isConfig = (item) => item._source.type !== 'config'
+
+module.exports = {
+  CHECKSUM_KEY,
+  addItem,
+  getEsState,
+  removeItem,
+  updateItem,
+  isVersioned,
+  isConfig
+}
