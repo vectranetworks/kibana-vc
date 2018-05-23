@@ -56,7 +56,7 @@ kibana-vc fetch --help
 
 ```
 
-getting the state og the target kibana and writing into the stdout
+getting the state of the target kibana and writing into the stdout
 We can redirect to a file
 
 `kibana-vc fetch > somefilename.json`
