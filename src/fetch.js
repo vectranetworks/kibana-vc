@@ -30,7 +30,6 @@ const fetch = async ({
   // add checksum
   // TODO: add dashboard version in config?
   const resultState = esState
-    .map(({ _source }) => _source)
     .map(source => {
       const checksum = getChecksum(source)
       if (!source.config) {
