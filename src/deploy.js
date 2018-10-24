@@ -9,7 +9,7 @@ const doUpdates = async (esClient, newState, currentState, dryRun) => {
   let removed = 0
   let updated = 0
 
-  newState.forEach(async newItem => {
+  const newStatesOperations = newState.map(async newItem => {
     const newChecksum = newItem._source.config[CHECKSUM_KEY]
     const existingItem = currentState.find(oldItem => oldItem._id === newItem._id)
 
@@ -28,7 +28,8 @@ const doUpdates = async (esClient, newState, currentState, dryRun) => {
       }
     }
   })
-  currentState.filter(isVersioned).forEach(async item => {
+  await Promise.all(newStatesOperations)
+  const removeItemsOperations = currentState.filter(isVersioned).map(async item => {
     const itemRemoved = newState.find(newItem => newItem._id === item._id)
     if (!itemRemoved) {
       removed++
@@ -37,6 +38,7 @@ const doUpdates = async (esClient, newState, currentState, dryRun) => {
       }
     }
   })
+  await Promise.all(removeItemsOperations)
   return { created, removed, updated }
 }
 
